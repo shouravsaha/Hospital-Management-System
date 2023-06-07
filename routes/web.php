@@ -29,6 +29,7 @@ Route::middleware([
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'redirect']);
+Route::post('/appointment', [HomeController::class, 'appointment']);
 
 
 Route::get('/add_doctors_view', [AdminController::class, 'add_doctor_view']);

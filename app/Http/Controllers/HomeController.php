@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Doctor_detail;
+use App\Models\Appointment;
+use App\View\Components\AppLayout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,5 +28,22 @@ class HomeController extends Controller
         }
         $doctor = Doctor_detail::get();
         return view('user.home', compact('doctor'));
+    }
+
+    public function appointment(Request $request){
+        $appoinment = new Appointment;
+        $appoinment->name = $request->name;
+        $appoinment->email = $request->email;
+        $appoinment->date = $request->date;
+        $appoinment->phone = $request->phone;
+        $appoinment->message = $request->message;
+        $appoinment->doctor = $request->doctor;
+        $appoinment->status = 'In Progress';
+        if(Auth::id()){
+            $appoinment->user_id = Auth::user()->id;
+        }
+        $appoinment->save();
+        return redirect()->back()->with('message', 'Appointment Request Successful. We will contract with you soon');
+
     }
 }
