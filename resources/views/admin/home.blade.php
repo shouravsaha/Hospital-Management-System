@@ -13,7 +13,7 @@
       {{-- including sidebar section --}}
       @include('admin.sidebar')
 
-      <div class="container-fluid page-body-wrapper">
+
         <!-- partial:partials/_navbar.html -->
 
         {{-- including navbar section --}}
@@ -22,9 +22,9 @@
         {{-- including body section --}}
         @include('admin.body')
 
-      </div>
+
       <!-- page-body-wrapper ends -->
-    </div>
+
     <!-- container-scroller -->
     <!-- plugins:js -->
 

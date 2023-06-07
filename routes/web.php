@@ -32,4 +32,5 @@ Route::get('/home', [HomeController::class, 'redirect']);
 
 
 Route::get('/add_doctors_view', [AdminController::class, 'add_doctor_view']);
+Route::post('/upload_doctor_data', [AdminController::class, 'upload_doctor_data']);
 
