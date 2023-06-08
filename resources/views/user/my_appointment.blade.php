@@ -36,14 +36,16 @@
                 <th style="padding: 10px; font-size: 20px; color:white;">Date</th>
                 <th style="padding: 10px; font-size: 20px; color:white;">Message</th>
                 <th style="padding: 10px; font-size: 20px; color:white;">Status</th>
+                <th style="padding: 10px; font-size: 20px; color:white;">Cancel Appointment</th>
             </tr>
             @foreach ($appointment as $data)
 
-            <tr style="background-color: black">
+            <tr style="background-color: black" align="center">
                 <td style="padding: 10px; font-size: 20px; color:white;">{{ $data->doctor }}</td>
                 <td style="padding: 10px; font-size: 20px; color:white;">{{ $data->date }}</td>
                 <td style="padding: 10px; font-size: 20px; color:white;">{{ $data->message }}</td>
                 <td style="padding: 10px; font-size: 20px; color:white;">{{ $data->status }}</td>
+                <td><a class="btn btn-danger" onclick="return confirm('are you sure to delete this')" href="{{ url('cancel_appointment', $data->id) }}">Cancel</a></td>
             </tr>
 
             @endforeach
