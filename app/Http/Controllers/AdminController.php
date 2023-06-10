@@ -10,6 +10,7 @@ class AdminController extends Controller
 {
     //add doctors form shows
     public function add_doctor_view(){
+
         return view('admin.add_doctor_view');
     }
 
@@ -20,7 +21,6 @@ class AdminController extends Controller
         $imagename = time(). '.' .$image->getClientoriginalExtension();
         $request->image->move('doctorimage', $imagename);
         $doctor->image = $imagename;
-
         $doctor->name = $request->name;
         $doctor->phone = $request->phone;
         $doctor->speciality = $request->speciality;
@@ -47,7 +47,6 @@ class AdminController extends Controller
         }
 
         $data->save();
-
         return redirect()->back();
     }
 
@@ -61,7 +60,6 @@ class AdminController extends Controller
         }
 
         $data->save();
-
         return redirect()->back();
 
     }
@@ -78,5 +76,30 @@ class AdminController extends Controller
         $doctor = Doctor_detail::find($id);
         $doctor->delete();
         return redirect()->back();
+
+    }
+
+    public function update_doctor($id){
+
+        $doctor = Doctor_detail::find($id);
+        return view('admin.updatedoctor', compact('doctor'));
+
+    }
+
+    public function edit_doctor(Request $request, $id){
+
+        $doctor = Doctor_detail::find($id);
+        $doctor->name = $request->name;
+        $doctor->phone = $request->phone;
+        $doctor->speciality = $request->speciality;
+        $doctor->room = $request->room;
+        $image = $request->image;
+        if($image){
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('doctorimage', $imagename);
+            $doctor->image = $imagename;
+        }
+        $doctor->save();
+        return redirect()->back()->with('message', 'Doctor Details Updated Successfully');
     }
 }
