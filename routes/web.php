@@ -40,4 +40,5 @@ Route::get('/add_doctors_view', [AdminController::class, 'add_doctor_view']);
 Route::post('/upload_doctor_data', [AdminController::class, 'upload_doctor_data']);
 Route::get('/showappointment', [AdminController::class, 'showappointment']);
 Route::get('/approved_appointment/{id}', [AdminController::class, 'approved_appointment']);
-
+Route::get('/showdoctors', [AdminController::class, 'showdoctors']);
+Route::get('/delete_doctor/{id}', [AdminController::class, 'delete_doctor']);
