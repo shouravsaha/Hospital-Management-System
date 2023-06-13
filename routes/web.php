@@ -36,6 +36,7 @@ Route::get('/cancel_appointment/{id}', [HomeController::class, 'cancel_appointme
 
 
 
+
 Route::get('/add_doctors_view', [AdminController::class, 'add_doctor_view']);
 Route::post('/upload_doctor_data', [AdminController::class, 'upload_doctor_data']);
 Route::get('/showappointment', [AdminController::class, 'showappointment']);
@@ -44,3 +45,5 @@ Route::get('/showdoctors', [AdminController::class, 'showdoctors']);
 Route::get('/delete_doctor/{id}', [AdminController::class, 'delete_doctor']);
 Route::get('/update_doctor/{id}', [AdminController::class, 'update_doctor']);
 Route::post('/edit_doctor/{id}', [AdminController::class, 'edit_doctor']);
+Route::get('/appointment_email/{id}', [AdminController::class, 'appointment_email']);
+Route::post('/appointment_email_send/{id}', [AdminController::class, 'appointment_email_send']);

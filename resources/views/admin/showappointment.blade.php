@@ -33,6 +33,7 @@
                         <td style="padding: 10px;">Status</td>
                         <td style="padding: 10px;">Approved</td>
                         <td style="padding: 10px;">Canceled</td>
+                        <td style="padding: 10px;">Send Mail</td>
                     </tr>
                     @foreach ($appoint as $data)
                     <tr align="center" style="background-color: skyblue; color: black;">
@@ -51,6 +52,11 @@
                         <td>
                             <a class="btn btn-danger" style="color:black;" href="{{ url('calceled_appointment', $data->id) }}">
                                 Canceled
+                            </a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" style="color:black;" href="{{ url('appointment_email', $data->id) }}">
+                                Send Mail
                             </a>
                         </td>
 
